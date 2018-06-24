@@ -17,7 +17,7 @@ abstract class ClassTransform {
         measureNanoTime {
             transform(classes)
         }.let {
-            System.out.printf("[%s] %s (%.02fs)", javaClass.simpleName, output(), it / 1e9)
+            System.out.printf("[%s] %s (%.02fs)\n", javaClass.simpleName, output(), it / 1e9)
         }
     }
 }
