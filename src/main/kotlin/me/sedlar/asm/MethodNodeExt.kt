@@ -2,6 +2,7 @@ package me.sedlar.asm
 
 import org.objectweb.asm.MethodVisitor
 import org.objectweb.asm.Opcodes
+import org.objectweb.asm.Type
 import org.objectweb.asm.tree.ClassNode
 import org.objectweb.asm.tree.MethodNode
 import org.objectweb.asm.tree.TryCatchBlockNode
@@ -14,6 +15,9 @@ val METHOD_OWNERS = HashMap<Int, ClassNode>()
 
 val MethodNode.hash: Int
     get() = System.identityHashCode(this)
+
+val MethodNode.paramSize: Int
+    get() = Type.getArgumentTypes(this.desc).size
 
 val MethodNode.owner: ClassNode
     get() = METHOD_OWNERS[this.hash] ?: error("method has not been patched")

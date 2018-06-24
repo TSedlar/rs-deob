@@ -1,7 +1,10 @@
 package me.sedlar.asm
 
+import org.objectweb.asm.ClassReader
 import org.objectweb.asm.ClassWriter
 import org.objectweb.asm.MethodVisitor
+import org.objectweb.asm.commons.ClassRemapper
+import org.objectweb.asm.commons.SimpleRemapper
 import org.objectweb.asm.tree.ClassNode
 import org.objectweb.asm.tree.FieldNode
 import org.objectweb.asm.tree.MethodNode
@@ -26,6 +29,17 @@ fun Map<String, ClassNode>.export(jar: String) {
     }
 
     out.close()
+}
+
+fun MutableMap<String, ClassNode>.remap(remapper: SimpleRemapper) {
+    this.values.forEach {
+        val writer = ClassWriter(ClassWriter.COMPUTE_MAXS)
+        it.accept(ClassRemapper(writer, remapper))
+        val rewritten = ClassNode()
+        val reader = ClassReader(writer.toByteArray())
+        reader.accept(rewritten, ClassReader.SKIP_FRAMES or ClassReader.SKIP_DEBUG)
+        this[it.name] = rewritten
+    }
 }
 
 fun Map<String, ClassNode>.findMethod(owner: String, method: String, desc: String): MethodNode {
