@@ -5,6 +5,7 @@ import me.sedlar.asm.isLocal
 import me.sedlar.asm.util.ClassScanner
 import me.sedlar.deobfuscator.DeadFieldTransform
 import me.sedlar.deobfuscator.DeadMethodTransform
+import me.sedlar.deobfuscator.TryCatchTransform
 import me.sedlar.deobfuscator.transform.ClassTransform
 import java.io.File
 
@@ -18,6 +19,7 @@ fun main(args: Array<String>) {
     val classes = ClassScanner.scanJar(File(JAR))
 
     val transforms: List<ClassTransform> = listOf(
+            TryCatchTransform(),
             DeadMethodTransform(DeadMethodTransform.OSRS_ENTRY_NAMES, { cn, mn ->
                 (cn.name == "client" || cn.name == classes["client"]!!.superName) && mn.isLocal()
             }),

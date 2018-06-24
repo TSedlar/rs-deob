@@ -4,6 +4,7 @@ import org.objectweb.asm.MethodVisitor
 import org.objectweb.asm.Opcodes
 import org.objectweb.asm.tree.ClassNode
 import org.objectweb.asm.tree.MethodNode
+import org.objectweb.asm.tree.TryCatchBlockNode
 
 /**
  * @author Tyler Sedlar
@@ -19,6 +20,10 @@ val MethodNode.owner: ClassNode
 
 val MethodNode.key: String
     get() = "${owner.name}.${this.name}${this.desc}"
+
+val MethodNode.tryCatchBlockList: MutableList<TryCatchBlockNode>
+    @Suppress("UNCHECKED_CAST")
+    get() = this.tryCatchBlocks as MutableList<TryCatchBlockNode>
 
 fun MethodNode.isLocal() = (this.access and Opcodes.ACC_STATIC) == 0
 
