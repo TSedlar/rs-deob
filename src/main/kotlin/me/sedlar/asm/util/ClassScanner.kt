@@ -49,7 +49,6 @@ object ClassScanner {
         } catch (e: IOException) {
             println("File was not found: $path")
         }
-
     }
 
     fun scanInputStream(inputStream: InputStream, predicate: Predicate<ClassNode>,
@@ -66,7 +65,6 @@ object ClassScanner {
         } catch (e: IOException) {
             e.printStackTrace()
         }
-
     }
 
     fun scanJar(file: File): Map<String, ClassNode> {

@@ -28,7 +28,7 @@ fun MethodNode.patch(owner: ClassNode) {
 
 fun MethodNode.visitCalls(classes: Map<String, ClassNode>): Set<MethodNode> {
     val calls: MutableSet<MethodNode> = HashSet()
-    this.accept(object: MethodVisitor(Opcodes.ASM6) {
+    this.accept(object : MethodVisitor(Opcodes.ASM6) {
         override fun visitMethodInsn(opcode: Int, owner: String, name: String, desc: String, itf: Boolean) {
             if (owner in classes) {
                 calls.addAll(classes.findMethodTree(owner, name, desc))

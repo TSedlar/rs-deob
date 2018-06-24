@@ -8,7 +8,7 @@ import org.objectweb.asm.tree.MethodNode
  * @author Tyler Sedlar
  * @since 6/24/2018
  */
-class MethodEdge: DefaultEdge() {
+class MethodEdge : DefaultEdge() {
 
     public override fun getSource(): MethodNode {
         return super.getSource() as MethodNode
