@@ -1,7 +1,7 @@
-package me.sedlar.me.sedlar.asm.util
+package me.sedlar.asm.util
 
-import me.sedlar.me.sedlar.asm.methodList
-import me.sedlar.me.sedlar.asm.patch
+import me.sedlar.asm.methodList
+import me.sedlar.asm.patch
 import org.objectweb.asm.ClassReader
 import org.objectweb.asm.tree.ClassNode
 import java.io.File

@@ -1,6 +1,6 @@
-package me.sedlar.me.sedlar.asm.graph
+package me.sedlar.asm.graph
 
-import me.sedlar.me.sedlar.asm.key
+import me.sedlar.asm.key
 import org.jgrapht.graph.DefaultEdge
 import org.objectweb.asm.tree.MethodNode
 

@@ -1,8 +1,11 @@
 package me.sedlar.deobfuscator
 
+import me.sedlar.asm.graph.CallGraph
+import me.sedlar.asm.isLocal
+import me.sedlar.asm.methodList
+import me.sedlar.asm.owner
+import me.sedlar.asm.visitSuperCalls
 import me.sedlar.deobfuscator.transform.ClassTransform
-import me.sedlar.me.sedlar.asm.*
-import me.sedlar.me.sedlar.asm.graph.CallGraph
 import org.objectweb.asm.Opcodes
 import org.objectweb.asm.tree.ClassNode
 import org.objectweb.asm.tree.MethodNode

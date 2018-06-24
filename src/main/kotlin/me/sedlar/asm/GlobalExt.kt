@@ -1,4 +1,4 @@
-package me.sedlar.me.sedlar.asm
+package me.sedlar.asm
 
 import org.objectweb.asm.ClassWriter
 import org.objectweb.asm.tree.ClassNode

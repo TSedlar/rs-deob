@@ -2,9 +2,9 @@ package me.sedlar.deobfuscator.osrs
 
 import me.sedlar.deobfuscator.DeadMethodTransform
 import me.sedlar.deobfuscator.transform.ClassTransform
-import me.sedlar.me.sedlar.asm.export
-import me.sedlar.me.sedlar.asm.isLocal
-import me.sedlar.me.sedlar.asm.util.ClassScanner
+import me.sedlar.asm.export
+import me.sedlar.asm.isLocal
+import me.sedlar.asm.util.ClassScanner
 import java.io.File
 
 /**

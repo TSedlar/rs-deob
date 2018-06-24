@@ -1,7 +1,7 @@
-package me.sedlar.me.sedlar.asm.graph
+package me.sedlar.asm.graph
 
-import me.sedlar.me.sedlar.asm.methodList
-import me.sedlar.me.sedlar.asm.visitCalls
+import me.sedlar.asm.methodList
+import me.sedlar.asm.visitCalls
 import org.jgrapht.graph.DefaultDirectedGraph
 import org.objectweb.asm.tree.ClassNode
 import org.objectweb.asm.tree.MethodNode
