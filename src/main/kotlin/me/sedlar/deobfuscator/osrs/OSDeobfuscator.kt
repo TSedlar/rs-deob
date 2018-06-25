@@ -3,10 +3,7 @@ package me.sedlar.deobfuscator.osrs
 import me.sedlar.asm.export
 import me.sedlar.asm.isLocal
 import me.sedlar.asm.util.ClassScanner
-import me.sedlar.deobfuscator.DeadFieldTransform
-import me.sedlar.deobfuscator.DeadMethodTransform
-import me.sedlar.deobfuscator.OpaqueTransform
-import me.sedlar.deobfuscator.TryCatchTransform
+import me.sedlar.deobfuscator.*
 import me.sedlar.deobfuscator.transform.ClassTransform
 import java.io.File
 
@@ -26,6 +23,7 @@ fun main(args: Array<String>) {
             }),
             OpaqueTransform(),
             DeadFieldTransform()
+//            EuclideanTransform()
     )
 
     transforms.forEach { it.apply(classes) }

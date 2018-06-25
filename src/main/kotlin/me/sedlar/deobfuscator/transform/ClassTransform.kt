@@ -9,9 +9,9 @@ import kotlin.system.measureNanoTime
  */
 abstract class ClassTransform(private var subtransform: Boolean = false) {
 
-    abstract fun transform(classes: Map<String, ClassNode>)
-
     abstract fun output(): String
+
+    abstract fun transform(classes: Map<String, ClassNode>)
 
     open fun end() {}
 
